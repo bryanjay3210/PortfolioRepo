@@ -9,23 +9,18 @@ Center mainContainer(
     required String title,
     required String deviceType}) {
   double titleSize = 0;
-  double childPadding = 0;
   switch (deviceType) {
     case "Mobile":
       titleSize = 25;
-      childPadding = 0;
       break;
     case "Tablet":
       titleSize = 30;
-      childPadding = 0;
       break;
     case "Desktop":
       titleSize = 35;
-      childPadding = 20;
       break;
     default:
       titleSize = 35;
-      childPadding = 20;
   }
   return Center(
     child: Container(

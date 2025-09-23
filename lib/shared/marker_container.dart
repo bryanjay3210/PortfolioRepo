@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +20,10 @@ Marker markerContainer(
           child: Icon(markerIcon, color: Colors.black, size: 18)),
       position: MarkerPosition.left,
       child: Container(
-        // width: double.infinity, // expands horizontally
+        width: math.min(
+          MediaQuery.of(context).size.width * 0.5,
+          600,
+        ), // expands horizontally
         decoration: BoxDecoration(
           color: kPrimaryDark,
           borderRadius: BorderRadius.circular(10),
