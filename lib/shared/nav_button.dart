@@ -42,10 +42,17 @@ SizedBox navButton(
             return Colors.black; // default background
           },
         ),
+        textStyle: WidgetStateProperty.resolveWith<TextStyle>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.hovered)) {
+              return GoogleFonts.robotoSerif(fontSize: 17); // hover font size
+            }
+            return GoogleFonts.robotoSerif(fontSize: 15); // default font size
+          },
+        ),
       ),
       label: Text(
         label,
-        style: GoogleFonts.robotoSerif(fontSize: 15),
       ),
     ),
   );

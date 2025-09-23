@@ -6,7 +6,27 @@ import 'package:portfolio/constant/constant.dart';
 Center mainContainer(
     {required BuildContext context,
     Widget? childWidget,
-    required String title}) {
+    required String title,
+    required String deviceType}) {
+  double titleSize = 0;
+  double childPadding = 0;
+  switch (deviceType) {
+    case "Mobile":
+      titleSize = 25;
+      childPadding = 0;
+      break;
+    case "Tablet":
+      titleSize = 30;
+      childPadding = 0;
+      break;
+    case "Desktop":
+      titleSize = 35;
+      childPadding = 20;
+      break;
+    default:
+      titleSize = 35;
+      childPadding = 20;
+  }
   return Center(
     child: Container(
       padding: const EdgeInsets.all(30),
@@ -17,29 +37,31 @@ Center mainContainer(
       width: MediaQuery.of(context).size.width * 0.8,
       height: MediaQuery.of(context).size.height * 0.8,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 60,
-            child: Text(
-              title,
-              style: GoogleFonts.robotoSerif(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
-            )
-                .animate()
-                .fadeIn(
-                  duration: 1000.ms,
-                )
-                .slideY(begin: 0.2, end: 0, duration: 1000.ms),
-          ),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.robotoSerif(
+              color: Colors.white,
+              fontSize: titleSize,
+              fontWeight: FontWeight.bold,
+            ),
+          )
+              .animate()
+              .fadeIn(
+                duration: 1000.ms,
+              )
+              .slideY(begin: 0.2, end: 0, duration: 1000.ms),
           Expanded(
             child: Scrollbar(
-                child: SingleChildScrollView(
-                    child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: childWidget ?? Container(),
-            ))),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: childWidget ?? Container(),
+                ),
+              ),
+            ),
           ),
         ],
       ),

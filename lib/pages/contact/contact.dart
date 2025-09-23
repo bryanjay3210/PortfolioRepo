@@ -7,6 +7,7 @@ import 'package:portfolio/model/contact.dart';
 import 'package:portfolio/shared/main_container.dart';
 import 'package:portfolio/shared/main_layout.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/utils/device.dart';
 
 class ContactScreen extends StatefulWidget {
   const ContactScreen({super.key});
@@ -18,6 +19,7 @@ class ContactScreen extends StatefulWidget {
 class _ContactScreenState extends State<ContactScreen> {
   @override
   Widget build(BuildContext context) {
+    String deviceType = DeviceUtils.getDeviceType(context);
     double screenWidth = MediaQuery.of(context).size.width;
     var contacts = [
       Contact(
@@ -52,6 +54,7 @@ class _ContactScreenState extends State<ContactScreen> {
         body: mainLayout(
             screenWidth,
             mainContainer(
+              deviceType: deviceType,
               context: context,
               title: "My Contacts",
               childWidget: SizedBox(
