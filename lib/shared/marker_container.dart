@@ -72,3 +72,74 @@ Marker markerContainer(
         ),
       ));
 }
+
+Container markerContainerForMobile(
+    {required String title,
+    required List<String> details,
+    required IconData markerIcon,
+    required BuildContext context}) {
+  return Container(
+    width: double.infinity, // expands horizontally
+    decoration: BoxDecoration(
+      color: kPrimaryDark,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    padding: const EdgeInsets.all(20),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min, // let height wrap content
+      children: [
+        Container(
+          height: 50,
+          width: 50,
+          decoration: BoxDecoration(
+              color: Colors.amber, borderRadius: BorderRadius.circular(50)),
+          child: Center(
+            child: Icon(markerIcon),
+          ),
+        )
+            .animate()
+            .fadeIn(duration: 1000.ms)
+            .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          textAlign: TextAlign.center,
+          title,
+          style: GoogleFonts.robotoSerif(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        )
+            .animate()
+            .fadeIn(duration: 1000.ms)
+            .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+        const SizedBox(height: 20),
+        ...details.map(
+          (text) => ListTile(
+            leading: const Icon(Icons.arrow_forward_ios_outlined,
+                color: Colors.amber),
+            title: Wrap(children: [
+              Text(
+                text,
+                softWrap: true,
+                style: GoogleFonts.robotoSerif(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
+            ]),
+          )
+              .animate()
+              .fadeIn(
+                duration: 1000.ms,
+                delay: 100.ms * details.indexOf(text), // staggered
+              )
+              .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+        ),
+      ],
+    ),
+  );
+}

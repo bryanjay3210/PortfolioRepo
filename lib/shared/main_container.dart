@@ -48,13 +48,13 @@ Center mainContainer(
                 duration: 1000.ms,
               )
               .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+          const SizedBox(
+            height: 10,
+          ),
           Expanded(
             child: Scrollbar(
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: childWidget ?? Container(),
-                ),
+                child: childWidget ?? Container(),
               ),
             ),
           ),
