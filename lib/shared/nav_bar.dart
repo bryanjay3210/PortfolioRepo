@@ -31,12 +31,15 @@ class _NavBarState extends State<NavBar> {
                 deviceType == "Mobile" || deviceType == "Tablet" ? 20 : 200),
         child: Row(
           children: [
-            Text(
-              'Portfolio',
-              style: GoogleFonts.robotoSerif(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
+            GestureDetector(
+              onTap: () => context.pushReplacementNamed(RouteConstants.landing),
+              child: Text(
+                'Portfolio',
+                style: GoogleFonts.robotoSerif(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             const Spacer(),
             screenWidth < 1427
