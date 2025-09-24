@@ -10,29 +10,19 @@ Container mainContainer({
   required String deviceType,
 }) {
   double titleSize;
-  double verticalPadding;
-  double topMargin;
 
   switch (deviceType) {
     case "Mobile":
       titleSize = 22;
-      verticalPadding = 20;
-      topMargin = 60;
       break;
     case "Tablet":
       titleSize = 28;
-      verticalPadding = 25;
-      topMargin = 80;
       break;
     case "Desktop":
       titleSize = 35;
-      verticalPadding = 30;
-      topMargin = 100;
       break;
     default:
       titleSize = 30;
-      verticalPadding = 25;
-      topMargin = 80;
   }
 
   return Container(

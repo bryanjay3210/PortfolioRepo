@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/constant/constant.dart';
 import 'package:portfolio/model/project.dart';
 import 'package:portfolio/shared/main_container.dart';
 import 'package:portfolio/shared/main_layout.dart';

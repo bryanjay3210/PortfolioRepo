@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:portfolio/constant/constant.dart';
 import 'package:portfolio/shared/nav_bar.dart';
