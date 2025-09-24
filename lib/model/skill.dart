@@ -1,6 +1,6 @@
-class Skill {
+class SkillModel {
   final String name;
   final String? iconPath;
 
-  Skill({required this.name, this.iconPath});
+  SkillModel({required this.name, this.iconPath});
 }

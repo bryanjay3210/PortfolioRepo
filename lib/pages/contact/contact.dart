@@ -22,89 +22,83 @@ class _ContactScreenState extends State<ContactScreen> {
     String deviceType = DeviceUtils.getDeviceType(context);
     double screenWidth = MediaQuery.of(context).size.width;
     var contacts = [
-      Contact(
+      ContactModel(
           title: 'Email',
           subtitle: 'bryanjay.3210@gmail.com',
           icon: const FaIcon(FontAwesomeIcons.envelope)),
-      Contact(
+      ContactModel(
           title: 'Phone',
           subtitle: '+63 909 732 6446',
           icon: const FaIcon(FontAwesomeIcons.phone)),
-      Contact(
+      ContactModel(
           title: 'Location',
           subtitle:
               'Delos Reyes Compound, Prk. Masunurin, Brgy. San Isidro General Santos City, 9500, Philippines',
           icon: const FaIcon(FontAwesomeIcons.locationDot)),
-      Contact(
+      ContactModel(
           title: 'Github',
           subtitle: 'https://github.com/bryanjay3210',
           icon: const FaIcon(FontAwesomeIcons.github)),
-      Contact(
+      ContactModel(
           title: 'LinkedIn',
           subtitle:
               'https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile',
           icon: const FaIcon(FontAwesomeIcons.linkedin)),
-      Contact(
+      ContactModel(
           title: 'Whatsapp',
           subtitle: '+63 909 732 6446',
           icon: const FaIcon(FontAwesomeIcons.whatsapp)),
     ];
-    return Scaffold(
-        backgroundColor: kPrimaryDark,
-        body: mainLayout(
-            screenWidth,
-            mainContainer(
-              deviceType: deviceType,
-              context: context,
-              title: "My Contacts",
-              childWidget: SizedBox(
-                height: 600,
-                width: 500,
-                child: Center(
-                  child: ListView(
-                    children: [
-                      ...contacts.map((contact) => ListTile(
-                            leading: FaIcon(contact.icon.icon,
-                                color: Colors.amber, size: 25),
-                            title: Text(
-                              contact.title,
-                              style: GoogleFonts.robotoSerif(
-                                  color: Colors.white, fontSize: 20),
-                            ),
-                            subtitle: SelectableText(
-                              contact.subtitle,
-                              style: GoogleFonts.robotoSerif(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                            trailing: contact.title == "Location"
-                                ? const SizedBox()
-                                : IconButton(
-                                    onPressed: () {
-                                      Clipboard.setData(ClipboardData(
-                                          text: contact.subtitle));
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                          content: Text('Copied to clipboard'),
-                                        ),
-                                      );
-                                    },
-                                    icon: const FaIcon(FontAwesomeIcons.copy,
-                                        color: Colors.white, size: 20),
-                                  ),
-                          )
-                              .animate()
-                              .fadeIn(
-                                duration: 1000.ms,
-                                delay: 100.ms * contacts.indexOf(contact),
-                              )
-                              .slideY(begin: 0.2, end: 0, duration: 1000.ms)),
-                    ],
-                  ),
-                ),
-              ),
-            )));
+    return mainLayout(
+        context: context,
+        screenWidth: screenWidth,
+        childWidget: mainContainer(
+          deviceType: deviceType,
+          context: context,
+          title: "My Contacts",
+          childWidget: ListView(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              ...contacts.map((contact) => ListTile(
+                    leading: FaIcon(contact.icon.icon,
+                        color: Colors.amber, size: 25),
+                    title: Text(
+                      contact.title,
+                      style: GoogleFonts.robotoSerif(
+                          color: Colors.white, fontSize: 20),
+                    ),
+                    subtitle: SelectableText(
+                      contact.subtitle,
+                      style: GoogleFonts.robotoSerif(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300),
+                    ),
+                    trailing: contact.title == "Location"
+                        ? const SizedBox()
+                        : IconButton(
+                            onPressed: () {
+                              Clipboard.setData(
+                                  ClipboardData(text: contact.subtitle));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Copied to clipboard'),
+                                ),
+                              );
+                            },
+                            icon: const FaIcon(FontAwesomeIcons.copy,
+                                color: Colors.white, size: 20),
+                          ),
+                  )
+                      .animate()
+                      .fadeIn(
+                        duration: 1000.ms,
+                        delay: 100.ms * contacts.indexOf(contact),
+                      )
+                      .slideY(begin: 0.2, end: 0, duration: 1000.ms)),
+            ],
+          ),
+        ));
   }
 }

@@ -70,6 +70,12 @@ flutter:
   assets:
     - assets/
     - assets/skills_icon/
+    - assets/screenshot/iptv/
+    - assets/screenshot/customer-portal/
+    - assets/screenshot/field-tech-portal/
+    - assets/screenshot/baba/
+    - assets/screenshot/credit-tracker/
+    - assets/screenshot/pos/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
