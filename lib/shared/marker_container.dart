@@ -43,7 +43,7 @@ Marker markerContainer(
               ),
             )
                 .animate()
-                .fadeIn(duration: 1000.ms)
+                .fadeIn(duration: 1000.ms, delay: 2000.ms)
                 .slideY(begin: 0.2, end: 0, duration: 1000.ms),
             const SizedBox(height: 20),
             ...details.map(
@@ -61,7 +61,7 @@ Marker markerContainer(
                   ),
                 ]),
               )
-                  .animate()
+                  .animate(delay: 2200.ms)
                   .fadeIn(
                     duration: 1000.ms,
                     delay: 100.ms * details.indexOf(text), // staggered
@@ -70,10 +70,13 @@ Marker markerContainer(
             ),
           ],
         ),
-      ));
+      )
+          .animate()
+          .fadeIn(delay: 1000.ms)
+          .slideY(begin: 0.2, end: 0, duration: 1000.ms));
 }
 
-Container markerContainerForMobile(
+Animate markerContainerForMobile(
     {required String title,
     required List<String> details,
     required IconData markerIcon,
@@ -99,8 +102,8 @@ Container markerContainerForMobile(
           ),
         )
             .animate()
-            .fadeIn(duration: 1000.ms)
-            .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+            .fadeIn(duration: 1000.ms, delay: 1200.ms)
+            .slideY(begin: 1, end: 0, duration: 800.ms),
         const SizedBox(
           height: 10,
         ),
@@ -113,9 +116,9 @@ Container markerContainerForMobile(
             fontWeight: FontWeight.w600,
           ),
         )
-            .animate()
-            .fadeIn(duration: 1000.ms)
-            .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+            .animate(delay: 1500.ms)
+            .fadeIn(duration: 800.ms)
+            .slideY(begin: 1, end: 0, duration: 1000.ms),
         const SizedBox(height: 20),
         ...details.map(
           (text) => ListTile(
@@ -132,14 +135,13 @@ Container markerContainerForMobile(
               ),
             ]),
           )
-              .animate()
+              .animate(delay: 1800.ms)
               .fadeIn(
-                duration: 1000.ms,
-                delay: 100.ms * details.indexOf(text), // staggered
+                delay: 200.ms * details.indexOf(text), // staggered
               )
-              .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+              .slideY(begin: 1, end: 0, duration: 1000.ms),
         ),
       ],
     ),
-  );
+  ).animate().fade(duration: 1000.milliseconds);
 }

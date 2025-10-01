@@ -90,12 +90,12 @@ class _ContactScreenState extends State<ContactScreen> {
                                 color: Colors.white, size: 20),
                           ),
                   )
-                      .animate()
+                      .animate(delay: 1500.ms)
                       .fadeIn(
-                        duration: 1000.ms,
+                        duration: 1500.ms,
                         delay: 100.ms * contacts.indexOf(contact),
                       )
-                      .slideY(begin: 0.2, end: 0, duration: 1000.ms)),
+                      .slideY(begin: 0.2, end: 0, duration: 1500.ms)),
             ],
           ),
         ));

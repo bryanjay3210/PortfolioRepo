@@ -90,9 +90,9 @@ class _SkillsScreenState extends State<SkillsScreen> {
                           .fadeIn(
                             duration: 800.ms,
                             delay:
-                                100.ms * skills.indexOf(skillset), // Staggered
+                                200.ms * skills.indexOf(skillset), // Staggered
                           )
-                          .slideY(begin: 0.2, end: 0, duration: 800.ms))
+                          .slideY(begin: 1, end: 0, duration: 1000.ms))
                   .toList(),
             ),
           ),

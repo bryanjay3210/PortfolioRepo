@@ -43,7 +43,7 @@ class _NavBarState extends State<NavBar> {
             ),
             const Spacer(),
             screenWidth < 1427
-                ? IconButton(
+                ? IconButton.outlined(
                     onPressed: () async {
                       final selected = await showMenu<String>(
                         color: kPrimaryDarkLightAccent,

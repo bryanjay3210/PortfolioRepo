@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constant/constant.dart';
 
-Container mainContainer({
+Animate mainContainer({
   required BuildContext context,
   Widget? childWidget,
   required String title,
@@ -55,5 +55,5 @@ Container mainContainer({
         childWidget ?? const SizedBox(),
       ],
     ),
-  );
+  ).animate().fadeIn().slideY(begin: 0.2, end: 0, duration: 1000.ms);
 }
