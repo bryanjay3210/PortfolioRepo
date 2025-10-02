@@ -48,7 +48,7 @@ Animate mainContainer({
             fontWeight: FontWeight.bold,
           ),
         )
-            .animate()
+            .animate(delay: 1000.ms)
             .fadeIn(duration: 1000.ms)
             .slideY(begin: 0.2, end: 0, duration: 1000.ms),
         const SizedBox(height: 15),

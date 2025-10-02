@@ -136,7 +136,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                         ),
                       ),
                     )
-                        .animate()
+                        .animate(delay: 1000.ms)
                         .fadeIn(
                           duration: 800.ms,
                           delay: 100.ms * index, // Staggered
