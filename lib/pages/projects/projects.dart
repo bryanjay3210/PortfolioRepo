@@ -2,8 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/model/project.dart';
+import 'package:portfolio/routes/route_constants.dart';
 import 'package:portfolio/shared/main_container.dart';
 import 'package:portfolio/shared/main_layout.dart';
 import 'package:portfolio/utils/device.dart';
@@ -29,11 +31,12 @@ class _ProjectScreenState extends State<ProjectScreen> {
     ProjectModel(
         title: 'Field Tech Portal',
         imagePath: 'assets/screenshot/field-tech-portal/dashboard.png'),
-    ProjectModel(title: 'Baba', imagePath: 'assets/screenshot/baba/login.png'),
+    ProjectModel(title: 'Baba', imagePath: 'assets/screenshot/baba/login.PNG'),
     ProjectModel(
         title: 'Credit Tracker',
-        imagePath: 'assets/screenshot/credit-tracker/login.png'),
-    ProjectModel(title: 'POS', imagePath: 'assets/screenshot/pos/login.png'),
+        imagePath: 'assets/screenshot/credit-tracker/dashboard.PNG'),
+    ProjectModel(
+        title: 'POS', imagePath: 'assets/screenshot/pos/dashboard.PNG'),
   ];
 
   @override
@@ -72,76 +75,83 @@ class _ProjectScreenState extends State<ProjectScreen> {
                   ),
                   itemBuilder: (context, index) {
                     final isHovered = _hoveredIndexes.contains(index);
-                    return Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: MouseRegion(
-                        onEnter: (_) =>
-                            setState(() => _hoveredIndexes.add(index)),
-                        onExit: (_) =>
-                            setState(() => _hoveredIndexes.remove(index)),
-                        child: AnimatedScale(
-                          scale: isHovered ? 1.2 : 1.0,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                          child: Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: ColorFiltered(
-                                  colorFilter: ColorFilter.mode(
-                                    Colors.black
-                                        .withOpacity(0.7), // darkness level
-                                    BlendMode.darken,
-                                  ),
-                                  child: Image.asset(
-                                    projects[index].imagePath,
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
+                    return GestureDetector(
+                      onTap: () => context.pushReplacementNamed(
+                        RouteConstants.projectsDetails,
+                        pathParameters: {'detailsName': projects[index].title},
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: MouseRegion(
+                          onEnter: (_) =>
+                              setState(() => _hoveredIndexes.add(index)),
+                          onExit: (_) =>
+                              setState(() => _hoveredIndexes.remove(index)),
+                          child: AnimatedScale(
+                            scale: isHovered ? 1.2 : 1.0,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                            child: Stack(
+                              children: [
+                                ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
-                                  color: const Color.fromARGB(90, 0, 0, 0),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.bottomCenter,
-                                    end: Alignment.topCenter,
-                                    colors: [
-                                      Colors.amber, // bottom color
-                                      Colors.transparent, // top color
-                                    ],
+                                  child: ColorFiltered(
+                                    colorFilter: ColorFilter.mode(
+                                      Colors.black
+                                          .withOpacity(0.7), // darkness level
+                                      BlendMode.darken,
+                                    ),
+                                    child: Image.asset(
+                                      projects[index].imagePath,
+                                      fit: BoxFit.cover,
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(bottom: 20),
-                                    child: Text(projects[index].title,
-                                        style: GoogleFonts.robotoSerif(
-                                            color: Colors.white,
-                                            fontSize: math.min(
-                                              MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.02,
-                                              22, // 👈 max size
-                                            ),
-                                            fontWeight: FontWeight.w400)),
-                                  ))
-                            ],
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: const Color.fromARGB(90, 0, 0, 0),
+                                    gradient: const LinearGradient(
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter,
+                                      colors: [
+                                        Colors.amber, // bottom color
+                                        Colors.transparent, // top color
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 20),
+                                      child: Text(projects[index].title,
+                                          style: GoogleFonts.robotoSerif(
+                                              color: Colors.white,
+                                              fontSize: math.min(
+                                                MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.02,
+                                                22, // 👈 max size
+                                              ),
+                                              fontWeight: FontWeight.w400)),
+                                    ))
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                        .animate(delay: 1000.ms)
-                        .fadeIn(
-                          duration: 800.ms,
-                          delay: 100.ms * index, // Staggered
-                        )
-                        .slideY(begin: 0.2, end: 0, duration: 800.ms);
+                      )
+                          .animate(delay: 1000.ms)
+                          .fadeIn(
+                            duration: 800.ms,
+                            delay: 100.ms * index, // Staggered
+                          )
+                          .slideY(begin: 0.2, end: 0, duration: 800.ms),
+                    );
                   },
                 ),
               ),

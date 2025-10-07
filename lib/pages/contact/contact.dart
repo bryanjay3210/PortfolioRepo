@@ -18,8 +18,9 @@ class ContactScreen extends StatefulWidget {
 class _ContactScreenState extends State<ContactScreen> {
   @override
   Widget build(BuildContext context) {
-    String deviceType = DeviceUtils.getDeviceType(context);
     double screenWidth = MediaQuery.of(context).size.width;
+    String deviceType = DeviceUtils.getDeviceType(context);
+
     var contacts = [
       ContactModel(
           title: 'Email',

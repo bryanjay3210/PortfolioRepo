@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/shared/main_layout.dart';
 import 'package:portfolio/shared/type_writer.dart';
 
@@ -69,7 +70,10 @@ class _LandingScreenState extends State<LandingScreen> {
                     MediaQuery.of(context).size.width * 0.6,
                     400,
                   ),
-                ),
+                )
+                    .animate(delay: 500.ms)
+                    .fadeIn(duration: 1000.ms)
+                    .slideX(begin: 0.2, end: 0, duration: 1000.ms),
               )
             ],
           ),

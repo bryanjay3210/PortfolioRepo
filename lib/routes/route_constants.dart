@@ -4,5 +4,6 @@ class RouteConstants {
   static String experience = 'experience';
   static String education = 'education';
   static String projects = 'projects';
+  static String projectsDetails = 'projects-details';
   static String contacts = 'contacts';
 }

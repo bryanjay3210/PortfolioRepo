@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constant/constant.dart';
+import 'package:portfolio/routes/route_constants.dart';
 
-Animate mainContainer({
-  required BuildContext context,
-  Widget? childWidget,
-  required String title,
-  required String deviceType,
-}) {
+Animate mainContainer(
+    {required BuildContext context,
+    Widget? childWidget,
+    required String title,
+    required String deviceType,
+    bool? hasClosedButton = false}) {
   double titleSize;
 
   switch (deviceType) {
@@ -39,18 +41,35 @@ Animate mainContainer({
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: GoogleFonts.robotoSerif(
-            color: Colors.white,
-            fontSize: titleSize,
-            fontWeight: FontWeight.bold,
-          ),
-        )
-            .animate(delay: 1000.ms)
-            .fadeIn(duration: 1000.ms)
-            .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+        Row(
+          children: [
+            Expanded(
+              child: Center(
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.robotoSerif(
+                    color: Colors.white,
+                    fontSize: titleSize,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+                    .animate(delay: 1000.ms)
+                    .fadeIn(duration: 1000.ms)
+                    .slideY(begin: 0.2, end: 0, duration: 1000.ms),
+              ),
+            ),
+            hasClosedButton!
+                ? IconButton(
+                    onPressed: () =>
+                        context.pushReplacementNamed(RouteConstants.projects),
+                    icon: const Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    ))
+                : const SizedBox(),
+          ],
+        ),
         const SizedBox(height: 15),
         childWidget ?? const SizedBox(),
       ],

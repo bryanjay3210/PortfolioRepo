@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constant/constant.dart';
 import 'package:portfolio/shared/nav_bar.dart';
 
-Scaffold mainLayout({
-  required double screenWidth,
-  required BuildContext context,
-  Widget? childWidget,
-}) {
+Scaffold mainLayout(
+    {required double screenWidth,
+    required BuildContext context,
+    Widget? childWidget,
+    bool? showNavBar = true}) {
   return Scaffold(
     backgroundColor: kPrimaryDark,
     body: Container(
@@ -47,7 +47,12 @@ Scaffold mainLayout({
             // Main content (NavBar + body)
             Column(
               children: [
-                const NavBar(), // Navbar stays on top
+                showNavBar!
+                    ? const NavBar()
+                    : const SizedBox(
+                        width: double.infinity,
+                        height: 50,
+                      ), // Navbar stays on top
                 childWidget ?? Container(),
               ],
             ),
