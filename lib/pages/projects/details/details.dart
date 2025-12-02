@@ -69,48 +69,48 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
           break;
         case 'Baba':
           screenshotList = [
-            'assets/screenshot/baba/login.png',
-            'assets/screenshot/baba/register.png',
-            'assets/screenshot/baba/self-assessment.png',
-            'assets/screenshot/baba/chapter-title.png',
-            'assets/screenshot/baba/chapter-story-line.png',
-            'assets/screenshot/baba/profile.png',
-            'assets/screenshot/baba/story-progress.png',
-            'assets/screenshot/baba/story-screen.png',
-            'assets/screenshot/baba/vocabulary.png',
-            'assets/screenshot/baba/quiz.png',
-            'assets/screenshot/baba/score.png',
+            'assets/screenshot/baba/login.PNG',
+            'assets/screenshot/baba/register.PNG',
+            'assets/screenshot/baba/self-assessment.PNG',
+            'assets/screenshot/baba/chapter-title.PNG',
+            'assets/screenshot/baba/chapter-story-line.PNG',
+            'assets/screenshot/baba/profile.PNG',
+            'assets/screenshot/baba/story-progress.PNG',
+            'assets/screenshot/baba/story-screen.PNG',
+            'assets/screenshot/baba/vocabulary.PNG',
+            'assets/screenshot/baba/quiz.PNG',
+            'assets/screenshot/baba/score.PNG',
           ];
           description =
               "BABA is a mobile learning app designed to help users master both Spanish and English through interactive lessons and engaging activities. It offers vocabulary and grammar exercises, pronunciation guides, and real-life conversation examples. The app also includes a quiz section to test knowledge, track progress, and reinforce learning—making language study fun, effective, and accessible anytime, anywhere.";
           break;
         case 'Credit Tracker':
           screenshotList = [
-            'assets/screenshot/credit-tracker/login.png',
-            'assets/screenshot/credit-tracker/register.png',
-            'assets/screenshot/credit-tracker/dashboard.png',
-            'assets/screenshot/credit-tracker/credit-list-empty.png',
-            'assets/screenshot/credit-tracker/credit-list.png',
-            'assets/screenshot/credit-tracker/creditor-list.png',
-            'assets/screenshot/credit-tracker/creditor-info.png',
-            'assets/screenshot/credit-tracker/creditor-information.png',
-            'assets/screenshot/credit-tracker/debit-list.png',
-            'assets/screenshot/credit-tracker/transaction-history.png',
+            'assets/screenshot/credit-tracker/login.PNG',
+            'assets/screenshot/credit-tracker/register.PNG',
+            'assets/screenshot/credit-tracker/dashboard.PNG',
+            'assets/screenshot/credit-tracker/credit-list-empty.PNG',
+            'assets/screenshot/credit-tracker/credit-list.PNG',
+            'assets/screenshot/credit-tracker/creditor-list.PNG',
+            'assets/screenshot/credit-tracker/creditor-info.PNG',
+            'assets/screenshot/credit-tracker/creditor-information.PNG',
+            'assets/screenshot/credit-tracker/debit-list.PNG',
+            'assets/screenshot/credit-tracker/transaction-history.PNG',
           ];
           description =
               "Credit Tracker is a local credit management tool that allows users to monitor their credit activities and payment records within their community or organization. It helps track credit limits, dues, and transaction history while providing reminders for upcoming payments. Designed for local businesses or cooperatives, it promotes responsible lending and borrowing by ensuring transparency, accountability, and easy access to credit information.";
           break;
         case 'POS':
           screenshotList = [
-            'assets/screenshot/pos/login.png',
-            'assets/screenshot/pos/dashboard.png',
-            'assets/screenshot/pos/sold-dashboard.png',
-            'assets/screenshot/pos/inventory.png',
-            'assets/screenshot/pos/inventory-modal.png',
-            'assets/screenshot/pos/order.png',
-            'assets/screenshot/pos/order-listing.png',
-            'assets/screenshot/pos/order-modal.png',
-            'assets/screenshot/pos/sales-report.png',
+            'assets/screenshot/pos/login.PNG',
+            'assets/screenshot/pos/dashboard.PNG',
+            'assets/screenshot/pos/sold-dashboard.PNG',
+            'assets/screenshot/pos/inventory.PNG',
+            'assets/screenshot/pos/inventory-modal.PNG',
+            'assets/screenshot/pos/order.PNG',
+            'assets/screenshot/pos/order-listing.PNG',
+            'assets/screenshot/pos/order-modal.PNG',
+            'assets/screenshot/pos/sales-report.PNG',
           ];
           description =
               "POS with Inventory and Sales Report is an all-in-one point-of-sale system that streamlines business transactions while managing product inventory in real time. It allows users to record sales, track stock levels, and automatically update item quantities after each purchase. The system also generates detailed sales reports and analytics, helping business owners monitor performance, identify best-selling products, and make data-driven decisions to improve profitability and efficiency.";

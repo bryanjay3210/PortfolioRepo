@@ -45,7 +45,7 @@ class _NavBarState extends State<NavBar> {
             screenWidth < 1427
                 ? IconButton(
                     onPressed: () async {
-                      final selected = await showMenu<String>(
+                      await showMenu<String>(
                         color: kPrimaryDarkLightAccent,
                         context: context,
                         position: RelativeRect.fromLTRB(
@@ -94,12 +94,6 @@ class _NavBarState extends State<NavBar> {
                           ),
                         ],
                       );
-
-                      if (selected != null) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("You selected: $selected")),
-                        );
-                      }
                     },
                     icon: FaIcon(FontAwesomeIcons.bars,
                         color: deviceType == "Mobile" || deviceType == "Tablet"

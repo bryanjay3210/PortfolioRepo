@@ -97,8 +97,8 @@ class _ProjectScreenState extends State<ProjectScreen> {
                                   borderRadius: BorderRadius.circular(15),
                                   child: ColorFiltered(
                                     colorFilter: ColorFilter.mode(
-                                      Colors.black
-                                          .withOpacity(0.7), // darkness level
+                                      Colors.black.withValues(
+                                          alpha: 0.7), // darkness level
                                       BlendMode.darken,
                                     ),
                                     child: Image.asset(
