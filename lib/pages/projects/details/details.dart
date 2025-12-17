@@ -138,7 +138,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                           }),
                       height: MediaQuery.of(context).size.height * .5,
                       autoPlay: true,
-                      autoPlayAnimationDuration: 100.ms,
+                      autoPlayAnimationDuration: 2000.ms,
                       enlargeCenterPage: true,
                       enableInfiniteScroll: true),
                   itemBuilder: (context, index, realIndex) {
